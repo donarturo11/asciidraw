@@ -1,0 +1,4 @@
+# ASCII Draw
+ASCII Draw is a primitive prototype to ASCII pics
+
+Program can be compiled both directly by typing make and using cmake.
