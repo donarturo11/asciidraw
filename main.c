@@ -5,15 +5,15 @@
 
 void greeting()
 {
-    printf("Welcome to ASCII Draw\n"
+	printf("Welcome to ASCII Draw\n"
            "To quit press q.\n");
 }
 
 int main()
 {
-    gotoxy(0, 0);
-    clrscr();
-    greeting();
-    keyboardTest();
- 	return 0;
+	gotoxy(0, 0);
+	clrscr();
+	greeting();
+	keyboardTest();
+	return 0;
 }

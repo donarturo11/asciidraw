@@ -2,37 +2,35 @@
 
 struct keyboard
 {
-  int active;
+	int active;
 };
-
-
 
 keyboard *keyboardInit()
 {
-   keyboard* k = NULL;
-   k = (keyboard*) malloc(sizeof(keyboard));
-   return k;
+	keyboard* k = NULL;
+	k = (keyboard*) malloc(sizeof(keyboard));
+	return k;
 }
 
 void keyboardDelete(keyboard *k)
 {
-   free(k);
+	free(k);
 }
 
 void keyboardLoop(keyboard *k)
 {
     k->active = TRUE;
 
-	while (k->active){
-       keyboardDetect(k); 
-	}
+    while (k->active){
+		keyboardDetect(k); 
+    }
 }
 
 void keyboardDetect(keyboard *k)
 {
-    int keyCode=getch();
+	int keyCode=getch();
 	while (kbhit()){
-        keyCode+=getch();
+		keyCode+=getch();
 	}
 	keyboardShortcut(k, keyCode);
 }
@@ -40,17 +38,16 @@ void keyboardDetect(keyboard *k)
 int keyboardShortcut(keyboard *k, int keyCode)
 {
     switch (keyCode) {
-       case 'q': k->active = FALSE; break;
-	   case K_UP: printf("UP\n"); break;
-	   default: printf("KeyCode is %i\n", keyCode); break;
-	}
-
+        case 'q': k->active = FALSE; break;
+		case K_UP: printf("UP\n"); break;
+		default: printf("KeyCode is %i\n", keyCode); break;
+    }
 	return keyCode;
 }
 
 void keyboardTest()
 {
-   keyboard *kbd=keyboardInit();
-   keyboardLoop(kbd);
-   keyboardDelete(kbd);
+    keyboard *kbd=keyboardInit();
+    keyboardLoop(kbd);
+    keyboardDelete(kbd);
 }
