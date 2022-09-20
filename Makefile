@@ -33,7 +33,7 @@ all: $(SOURCES) $(EXECUTABLE)
 
 $(EXECUTABLE): $(OBJECTS)
 	@echo Building $@
-	@$(CXX) $^ -o $@ $(LINKER_FLAGS)
+	@$(CC) $^ -o $@ $(LINKER_FLAGS)
 	@echo
 	@echo Type $@ to run.
 	@echo
