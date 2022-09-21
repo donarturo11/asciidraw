@@ -64,27 +64,27 @@ void drawmatrix_draw(drawmatrix *d)
 void drawmatrix_initPicture(drawmatrix *d)
 {
     int height = d->height;
-	int width = d->width;	
-	d->picture=calloc(height * (width+1), sizeof(char));
-	drawmatrix_clearPicture(d);
+    int width = d->width;	
+    d->picture=calloc(height * (width+1), sizeof(char));
+    drawmatrix_clearPicture(d);
 }
 
 void drawmatrix_clearPicture(drawmatrix *d)
 {
     int height = d->height;
-	int width = d->width;
-	char c;
+    int width = d->width;
+    char c;
 #ifdef _MATRIX_DEBUG
-	c = '0';
+    c = '0';
 #else
-	c = ' ';
+    c = ' ';
 #endif
-	int position = 0;
+    int position = 0;
     for (int i=0; i<(width*height+height); i++) d->picture[i]=c;	
     for (int y=0; y<height; y++) {
-		position = drawmatrix_calculatePosition(d, width, y);
-		d->picture[position]='\n';
-	}
+    position = drawmatrix_calculatePosition(d, width, y);
+    d->picture[position]='\n';
+    }
 }
 
 char *drawmatrix_getPicture(drawmatrix *d)
