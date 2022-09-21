@@ -3,30 +3,30 @@
 #include <stdlib.h>
 
 struct drawmatrix {
-	int xMax, yMax;
-	int width, height;
-	int focus;
-	char* picture;
+    int xMax, yMax;
+    int width, height;
+    int focus;
+    char* picture;
 };
 
 drawmatrix *drawmatrix_init(int width, int height)
 {
     drawmatrix *d = (drawmatrix*) malloc(sizeof(drawmatrix));
     drawmatrix_setDimensions(d, width, height);	
-	drawmatrix_initPicture(d);
-	return d;
+    drawmatrix_initPicture(d);
+    return d;
 } 
 
 void drawmatrix_destroy(drawmatrix *d)
 {
-	free(d);
+    free(d);
 }
 
 void drawmatrix_setDimensions(drawmatrix *d, int width, int height)
 {
     d->width = width;
-	d->height = height;
-	drawmatrix_setMaxPositions(d);
+    d->height = height;
+    drawmatrix_setMaxPositions(d);
 }
 
 void drawmatrix_setMaxPositions(drawmatrix *d)
@@ -37,16 +37,16 @@ void drawmatrix_setMaxPositions(drawmatrix *d)
 
 void drawmatrix_resize(drawmatrix *d, int width, int height)
 {
-	drawmatrix_setDimensions(d, width, height);
-	d->picture=realloc(d->picture, sizeof(char)*(width+1)*height);
-	drawmatrix_clearPicture(d);
+    drawmatrix_setDimensions(d, width, height);
+    d->picture=realloc(d->picture, sizeof(char)*(width+1)*height);
+    drawmatrix_clearPicture(d);
 }
 
 void drawmatrix_put(drawmatrix *d, int x, int y, char c)
 {
     int position=drawmatrix_calculatePosition(d, x, y);
-	if (x<=d->xMax && y<=d->yMax)
-	    d->picture[position]=c;
+    if (x<=d->xMax && y<=d->yMax)
+        d->picture[position]=c;
 }
 
 char drawmatrix_getChar(drawmatrix *d, int x, int y)
