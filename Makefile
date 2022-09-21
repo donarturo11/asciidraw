@@ -9,7 +9,7 @@ CXXFLAGS =
 CC = gcc
 CFLAGS = -I .
 AR = ar
-SOURCES = $(wildcard *.cpp) $(wildcard *.c) $(wildcard keyboard/*.cpp) $(wildcard keyboard/*.c)
+SOURCES = $(wildcard *.cpp) $(wildcard *.c) $(wildcard keyboard/*.cpp) $(wildcard keyboard/*.c) $(wildcard drawmatrix/*.c)
 
 
 LINKER_FLAGS = 
@@ -33,7 +33,7 @@ all: $(SOURCES) $(EXECUTABLE)
 
 $(EXECUTABLE): $(OBJECTS)
 	@echo Building $@
-	@$(CC) $^ -o $@ $(LINKER_FLAGS)
+	@$(CXX) $^ -o $@ $(LINKER_FLAGS)
 	@echo
 	@echo Type $@ to run.
 	@echo

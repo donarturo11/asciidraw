@@ -3,10 +3,10 @@ project(asciidraw VERSION 1.0.0 LANGUAGES C)
 
 #FILE(GLOB_RECURSE HEADERS *.h)
 set(HEADERS)
-FILE(GLOB SOURCES keyboard/*.c main.c)
+FILE(GLOB SOURCES keyboard/*.c drawmatrix/* main.c)
 
 include_directories(./)
-include_directories(./conio/)
+include_directories(conio drawmatrix)
 
 if(NOT ${CMAKE_SYSTEM_NAME} STREQUAL "Windows")
     add_library(conio STATIC conio/conio2-ansi.c)
